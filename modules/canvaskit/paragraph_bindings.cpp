@@ -228,7 +228,7 @@ para::ParagraphStyle toParagraphStyle(const SimpleParagraphStyle& s) {
 
     if (s.ellipsisLen > 0) {
         const char* ellipsisPtr = reinterpret_cast<const char*>(s.ellipsisPtr);
-        SkString eStr(ellipsisPtr, s.ellipsisLen);
+        SkString eStr(ellipsisPtr, s.ellipsisLen - 1); // subtract 1 to remove the null terminator.
         ps.setEllipsis(eStr);
     }
     ps.setTextAlign(s.textAlign);
